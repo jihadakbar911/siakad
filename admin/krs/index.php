@@ -74,6 +74,7 @@ require_once __DIR__ . '/../../includes/sidebar.php';
                                 <th>Total SKS</th>
                                 <th>Tanggal Pengisian</th>
                                 <th>Status</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -91,6 +92,11 @@ require_once __DIR__ . '/../../includes/sidebar.php';
                                         <td>
                                             <?php $bc = match($k['status_krs']) { 'draft'=>'secondary', 'disetujui'=>'success', 'dikunci'=>'primary', default=>'secondary' }; ?>
                                             <span class="badge badge-<?= $bc ?>"><?= e(ucfirst($k['status_krs'])) ?></span>
+                                        </td>
+                                        <td>
+                                            <a href="<?= BASE_URL ?>/admin/krs/detail.php?id=<?= $k['id_krs'] ?>" class="btn btn-sm btn-info" title="Detail & Validasi">
+                                                <i class="fas fa-search"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
